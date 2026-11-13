@@ -1,0 +1,1354 @@
+
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VIOLET STORE — Premium Online Shop</title>
+
+<style>
+:root {
+  --bg: #09080e;
+  --panel: #13111c;
+  --panel2: #1b1728;
+  --purple: #8b5cf6;
+  --purple2: #a78bfa;
+  --text: #f5f3ff;
+  --muted: #aaa4bd;
+  --border: rgba(167,139,250,.17);
+  --green: #4ade80;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(ellipse at 50% -20%, #39205c 0, transparent 50%),
+    var(--bg);
+  min-height: 100vh;
+}
+
+button, input, select { font: inherit; }
+button { cursor: pointer; }
+a { text-decoration: none; color: inherit; }
+
+.container {
+  width: min(1200px, 92%);
+  margin: auto;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(9,8,14,.88);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--border);
+}
+
+.topbar {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+}
+
+.logo {
+  font-size: 23px;
+  font-weight: 900;
+  letter-spacing: -1px;
+  white-space: nowrap;
+}
+
+.logo span { color: var(--purple2); }
+
+.search {
+  flex: 1;
+  max-width: 480px;
+  position: relative;
+}
+
+.search input {
+  width: 100%;
+  padding: 14px 18px 14px 44px;
+  color: white;
+  background: #171420;
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  outline: none;
+}
+
+.search input:focus { border-color: var(--purple); }
+
+.search-icon {
+  position: absolute;
+  left: 15px;
+  top: 13px;
+  color: var(--muted);
+}
+
+.header-actions { display: flex; gap: 10px; }
+
+.icon-btn {
+  border: 1px solid var(--border);
+  background: var(--panel);
+  color: white;
+  border-radius: 12px;
+  padding: 12px 14px;
+  transition: .2s;
+}
+
+.icon-btn:hover { background: var(--panel2); transform: translateY(-2px); }
+
+nav {
+  display: flex;
+  gap: 27px;
+  padding: 0 0 16px;
+  color: var(--muted);
+  font-size: 14px;
+  overflow-x: auto;
+}
+
+nav a { white-space: nowrap; transition: .2s; }
+nav a:hover { color: white; }
+
+.hero {
+  margin-top: 32px;
+  min-height: 365px;
+  border: 1px solid var(--border);
+  border-radius: 26px;
+  overflow: hidden;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  align-items: center;
+  padding: 50px;
+  background:
+    radial-gradient(circle at 78% 45%, #6d28d9 0, transparent 28%),
+    linear-gradient(120deg, #1b142a, #100d18 65%, #271344);
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border: 1px solid rgba(196,181,253,.2);
+  border-radius: 50%;
+  right: 8%;
+  top: 8%;
+  box-shadow: 0 0 80px rgba(139,92,246,.2);
+}
+
+.eyebrow {
+  display: inline-block;
+  color: #ddd0ff;
+  background: rgba(139,92,246,.15);
+  border: 1px solid var(--border);
+  padding: 8px 12px;
+  border-radius: 30px;
+  font-size: 12px;
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  font-size: clamp(35px, 5vw, 58px);
+  line-height: 1.08;
+  letter-spacing: -2px;
+  margin-bottom: 17px;
+}
+
+.hero h1 span {
+  background: linear-gradient(90deg, #c4b5fd, #8b5cf6);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.hero p {
+  color: var(--muted);
+  line-height: 1.8;
+  max-width: 460px;
+  margin-bottom: 25px;
+}
+
+.primary-btn {
+  display: inline-block;
+  border: none;
+  color: white;
+  padding: 14px 22px;
+  border-radius: 12px;
+  font-weight: bold;
+  background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+  box-shadow: 0 8px 28px rgba(109,40,217,.25);
+  transition: .25s;
+}
+
+.primary-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(139,92,246,.4);
+}
+
+.hero-art {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  font-size: clamp(90px, 13vw, 165px);
+  filter: drop-shadow(0 18px 30px rgba(0,0,0,.45));
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0) rotate(-4deg); }
+  50% { transform: translateY(-13px) rotate(4deg); }
+}
+
+.benefits {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin: 24px 0 52px;
+}
+
+.benefit {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  background: rgba(19,17,28,.8);
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  padding: 17px;
+}
+
+.benefit .emoji { font-size: 25px; }
+.benefit strong { display: block; font-size: 13px; margin-bottom: 5px; }
+.benefit small { color: var(--muted); font-size: 11px; }
+
+.section-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.section-head h2 {
+  font-size: 29px;
+  letter-spacing: -.7px;
+}
+
+.section-head p { color: var(--muted); margin-top: 8px; font-size: 14px; }
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.filter-btn {
+  padding: 10px 15px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--muted);
+  background: var(--panel);
+  transition: .2s;
+}
+
+.filter-btn.active, .filter-btn:hover {
+  color: white;
+  background: #37205c;
+  border-color: var(--purple);
+}
+
+.sort-select {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  color: white;
+  padding: 11px;
+  border-radius: 10px;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.product {
+  position: relative;
+  min-width: 0;
+  background: linear-gradient(155deg, #191624, #100e17);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  overflow: hidden;
+  transition: transform .25s, border-color .25s, box-shadow .25s;
+  animation: appear .4s ease both;
+}
+
+.product:hover {
+  transform: translateY(-6px);
+  border-color: rgba(167,139,250,.55);
+  box-shadow: 0 15px 35px rgba(0,0,0,.24);
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.product-visual {
+  height: 190px;
+  position: relative;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at 50% 65%, rgba(139,92,246,.19), transparent 55%),
+    #171420;
+}
+
+
+
+
+.product-visual { overflow: hidden; }
+.product-visual img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 22px;
+  object-fit: contain;
+}
+.discount, .favorite { z-index: 2; }
+
+.product-visual img {
+  opacity: 0;
+  transform-origin: 50% 85%;
+  transition: opacity .5s ease;
+  animation: sway 3.6s ease-in-out infinite;
+  animation-delay: var(--d, 0s);
+}
+.product-visual img.loaded { opacity: 1; }
+.product:hover .product-visual img { animation-duration: 1.6s; }
+
+@keyframes sway {
+  0%, 100% { transform: translateX(-4px) rotate(-3deg); }
+  50% { transform: translateX(4px) rotate(3deg); }
+}
+
+.product-visual.ready::before { display: none; }
+
+.product-visual::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, transparent 30%, rgba(167,139,250,.12) 50%, transparent 70%);
+  background-size: 250% 100%;
+  animation: shimmer 1.3s linear infinite;
+}
+@keyframes shimmer {
+  from { background-position: 150% 0; }
+  to { background-position: -100% 0; }
+}
+
+#preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 22px;
+  background: var(--bg);
+  transition: opacity .5s ease, visibility .5s ease;
+}
+#preloader.hide { opacity: 0; visibility: hidden; }
+#preloader .logo { font-size: 34px; animation: pulse 1.2s ease-in-out infinite; }
+.loader-bar {
+  width: 190px;
+  height: 4px;
+  border-radius: 4px;
+  background: var(--panel2);
+  overflow: hidden;
+}
+.loader-bar i {
+  display: block;
+  height: 100%;
+  width: 0;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #8b5cf6, #c4b5fd);
+  transition: width .3s ease;
+}
+@keyframes pulse { 0%,100% { opacity: .6; } 50% { opacity: 1; } }
+
+.cart-emoji { overflow: hidden; }
+.cart-emoji img { width: 100%; height: 100%; object-fit: contain; padding: 4px; }
+
+.discount {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: #7c3aed;
+  border-radius: 7px;
+  padding: 6px 8px;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.favorite {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: #211b30;
+  color: white;
+  font-size: 17px;
+}
+
+.favorite.active { color: #fb7185; }
+
+.product-info { padding: 16px; }
+
+.brand {
+  color: var(--purple2);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 10px;
+  font-weight: bold;
+  margin-bottom: 7px;
+}
+
+.product h3 {
+  font-size: 15px;
+  line-height: 1.45;
+  min-height: 42px;
+  margin-bottom: 8px;
+}
+
+.specs {
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.6;
+  min-height: 35px;
+}
+
+.rating {
+  color: #fbbf24;
+  font-size: 12px;
+  margin: 10px 0;
+}
+
+.rating span { color: var(--muted); }
+
+.stock {
+  color: var(--green);
+  font-size: 11px;
+  margin-bottom: 12px;
+}
+
+.price-row {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 13px;
+}
+
+.price {
+  font-size: 18px;
+  font-weight: 800;
+  overflow-wrap: anywhere;
+}
+
+.old-price {
+  font-size: 12px;
+  color: #80798e;
+  text-decoration: line-through;
+}
+
+.add-btn {
+  width: 100%;
+  border: 1px solid rgba(167,139,250,.35);
+  background: rgba(139,92,246,.13);
+  color: white;
+  padding: 12px 8px;
+  border-radius: 10px;
+  font-weight: bold;
+  transition: .2s;
+}
+
+.add-btn:hover { background: var(--purple); }
+
+.empty {
+  grid-column: 1/-1;
+  padding: 50px;
+  text-align: center;
+  color: var(--muted);
+  border: 1px dashed var(--border);
+  border-radius: 18px;
+}
+
+.promo {
+  margin: 65px 0;
+  padding: 35px;
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  background: linear-gradient(115deg, #24163e, #15101f);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.promo h2 { font-size: 27px; margin-bottom: 10px; }
+.promo p { color: var(--muted); line-height: 1.7; }
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 18px;
+  margin: 25px 0 65px;
+}
+
+.about-card {
+  padding: 25px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 17px;
+}
+
+.about-card .emoji { font-size: 30px; }
+.about-card h3 { margin: 15px 0 9px; font-size: 16px; }
+.about-card p { color: var(--muted); line-height: 1.7; font-size: 13px; }
+
+footer {
+  border-top: 1px solid var(--border);
+  padding: 35px 0;
+  color: var(--muted);
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+footer p { font-size: 13px; line-height: 1.8; margin-top: 8px; }
+
+.overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  background: rgba(0,0,0,.7);
+  backdrop-filter: blur(4px);
+}
+
+.overlay.show { display: block; }
+
+.drawer {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: min(450px,100%);
+  padding: 25px;
+  background: #100e18;
+  border-left: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  animation: slideIn .25s ease;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(35px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.drawer-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.close-btn {
+  border: 1px solid var(--border);
+  background: var(--panel);
+  color: white;
+  border-radius: 9px;
+  padding: 8px 12px;
+}
+
+.cart-items { flex: 1; }
+
+.cart-item {
+  display: grid;
+  grid-template-columns: 55px 1fr auto;
+  gap: 12px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+  align-items: center;
+}
+
+.cart-emoji {
+  background: var(--panel2);
+  border-radius: 12px;
+  width: 55px;
+  height: 55px;
+  display: grid;
+  place-items: center;
+  font-size: 27px;
+}
+
+.cart-item h4 { font-size: 13px; line-height: 1.5; }
+.cart-item small { display: block; color: var(--muted); margin-top: 5px; }
+
+.quantity { display: flex; align-items: center; gap: 8px; margin-top: 8px; }
+
+.quantity button {
+  width: 25px;
+  height: 25px;
+  color: white;
+  background: var(--panel2);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+.remove-btn { background: none; color: #fb7185; border: none; padding: 5px; }
+
+.cart-bottom { border-top: 1px solid var(--border); padding-top: 20px; margin-top: 20px; }
+.total-row { display: flex; justify-content: space-between; gap: 10px; margin-bottom: 18px; font-size: 17px; }
+.cart-bottom .primary-btn { width: 100%; }
+
+.modal-wrap {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  padding: 18px;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,.75);
+  backdrop-filter: blur(7px);
+}
+
+.modal-wrap.show { display: flex; }
+
+.modal {
+  width: min(520px,100%);
+  max-height: 92vh;
+  overflow-y: auto;
+  background: #15121f;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 26px;
+  animation: appear .25s ease;
+}
+
+.modal h2 { margin-bottom: 9px; }
+.modal > p { color: var(--muted); font-size: 13px; line-height: 1.7; margin-bottom: 20px; }
+
+.form-group { margin-bottom: 15px; }
+.form-group label { display: block; font-size: 12px; margin-bottom: 7px; color: #d5cde8; }
+
+.form-group input, .form-group select, .form-group textarea {
+  width: 100%;
+  background: #0e0c14;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 13px;
+  color: white;
+  outline: none;
+}
+
+.form-group textarea { resize: vertical; min-height: 75px; }
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--purple); }
+.form-group select option { background: #15121f; }
+
+.form-actions { display: flex; gap: 10px; }
+.form-actions button { flex: 1; }
+
+.toast {
+  position: fixed;
+  z-index: 100;
+  bottom: 25px;
+  left: 50%;
+  transform: translate(-50%,20px);
+  opacity: 0;
+  pointer-events: none;
+  background: #25183b;
+  border: 1px solid var(--purple);
+  padding: 13px 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px #0006;
+  transition: .25s;
+  width: max-content;
+  max-width: 90%;
+  font-size: 13px;
+}
+
+.toast.show { opacity: 1; transform: translate(-50%,0); }
+
+@media(max-width: 950px) {
+  .products { grid-template-columns: repeat(3,minmax(0,1fr)); }
+  .benefits { grid-template-columns: repeat(2,1fr); }
+  .hero { padding: 35px; }
+}
+
+@media(max-width: 650px) {
+  .topbar { flex-wrap: wrap; padding: 15px 0; gap: 12px; }
+  .logo { font-size: 20px; }
+  .search { order: 3; flex-basis: 100%; max-width: none; }
+  nav { gap: 20px; }
+  .hero { grid-template-columns: 1fr; padding: 28px 23px; }
+  .hero-art { font-size: 100px; margin-top: 15px; }
+  .hero h1 { letter-spacing: -1px; }
+  .benefits { gap: 9px; }
+  .benefit { padding: 12px; }
+  .benefit small { font-size: 10px; }
+  .products { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; }
+  .product-visual { height: 140px; }
+  .product-info { padding: 12px; }
+  .product h3 { font-size: 13px; }
+  .price { font-size: 15px; }
+  .section-head { align-items: flex-start; flex-direction: column; }
+  .promo { flex-direction: column; align-items: flex-start; padding: 25px; }
+  .about-grid { grid-template-columns: 1fr; }
+  .footer-inner { flex-direction: column; }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  .product-visual img, .product-visual::before { animation: none !important; }
+  *,*::before,*::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+</style>
+</head>
+
+<body>
+<div id="preloader"><div class="logo">VIOLET<span>STORE.</span></div><div class="loader-bar"><i id="loaderFill"></i></div></div>
+
+<header>
+  <div class="container">
+    <div class="topbar">
+      <a href="#" class="logo">VIOLET<span>STORE.</span></a>
+
+      <div class="search">
+        <span class="search-icon">⌕</span>
+        <input id="searchInput" type="search" placeholder="Mahsulot qidirish...">
+      </div>
+
+      <div class="header-actions">
+        <button class="icon-btn" id="favoritesButton" aria-label="Sevimlilar">♡ <span id="favoriteCount">0</span></button>
+        <button class="icon-btn" id="cartButton" aria-label="Savatcha">🛒 <span id="cartCount">0</span></button>
+      </div>
+    </div>
+
+    <nav>
+      <a href="#home">Bosh sahifa</a>
+      <a href="#products">Mahsulotlar</a>
+      <a href="#offers">Chegirmalar</a>
+      <a href="#about">Biz haqimizda</a>
+      <a href="#contacts">Aloqa</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <section class="hero" id="home">
+    <div>
+      <span class="eyebrow">✦ ZAMONAVIY ONLAYN DO‘KON</span>
+      <h1>Texnologiya.<br><span>Uslub. Qulaylik.</span></h1>
+      <p>Sevimli texnikalaringiz, gaming qurilmalari va aksessuarlarni bir joydan toping. Xarid qilish endi yanada qulay!</p>
+      <a class="primary-btn" href="#products">Xarid qilish →</a>
+    </div>
+    <div class="hero-art" aria-label="Texnologiya mahsulotlari">🎧 📱</div>
+  </section>
+
+  <section class="benefits" aria-label="Do‘kon afzalliklari">
+    <div class="benefit"><span class="emoji">🚚</span><div><strong>Qulay yetkazish</strong><small>Yetkazish shartlari buyurtmada</small></div></div>
+    <div class="benefit"><span class="emoji">🛡️</span><div><strong>Xavfsiz xarid</strong><small>Buyurtma ma’lumotlarini tekshiring</small></div></div>
+    <div class="benefit"><span class="emoji">💬</span><div><strong>Mijozlar yordami</strong><small>Savollaringizga javob</small></div></div>
+    <div class="benefit"><span class="emoji">✨</span><div><strong>Tanlangan mahsulotlar</strong><small>Turli toifadagi buyumlar</small></div></div>
+  </section>
+
+  <section id="products">
+    <div class="section-head">
+      <div>
+        <h2>Mahsulotlar katalogi</h2>
+        <p>O‘zingizga mos mahsulotni toping</p>
+      </div>
+      <select class="sort-select" id="sortSelect" aria-label="Saralash">
+        <option value="popular">Ommabop</option>
+        <option value="cheap">Avval arzon</option>
+        <option value="expensive">Avval qimmat</option>
+        <option value="rating">Reyting bo‘yicha</option>
+        <option value="discount">Chegirma bo‘yicha</option>
+      </select>
+    </div>
+
+    <div class="filters" id="filters">
+      <button class="filter-btn active" data-category="Barchasi">Barchasi</button>
+      <button class="filter-btn" data-category="Elektronika">Elektronika</button>
+      <button class="filter-btn" data-category="Gaming">Gaming</button>
+      <button class="filter-btn" data-category="Aksessuarlar">Aksessuarlar</button>
+      <button class="filter-btn" data-category="Kiyimlar">Kiyimlar</button>
+      <button class="filter-btn" data-category="Uy uchun">Uy uchun</button>
+    </div>
+
+    <div class="products" id="productsGrid"></div>
+  </section>
+
+  <section class="promo" id="offers">
+    <div>
+      <span class="eyebrow">VIOLET TAKLIFI</span>
+      <h2>Sevimli mahsulotingizni toping</h2>
+      <p>Katalogni ko‘rib chiqing va mahsulotlarni savatchaga qo‘shing.<br>Ko‘rsatilgan narxlar demo uchun kiritilgan.</p>
+    </div>
+    <a href="#products" class="primary-btn">Katalogni ko‘rish →</a>
+  </section>
+
+  <section id="about">
+    <div class="section-head">
+      <div>
+        <h2>Nega VIOLET STORE?</h2>
+        <p>Qulay onlayn xarid uchun yaratilgan demo do‘kon</p>
+      </div>
+    </div>
+
+    <div class="about-grid">
+      <article class="about-card">
+        <span class="emoji">🔎</span>
+        <h3>Oson qidiruv</h3>
+        <p>Mahsulotlarni nomi yoki brendi bo‘yicha qidiring, kerakli toifani tanlang va narx bo‘yicha saralang.</p>
+      </article>
+      <article class="about-card">
+        <span class="emoji">🛍️</span>
+        <h3>Qulay savatcha</h3>
+        <p>Mahsulotlar sonini o‘zgartiring, umumiy summani ko‘ring va buyurtma formasini to‘ldiring.</p>
+      </article>
+      <article class="about-card">
+        <span class="emoji">💜</span>
+        <h3>Zamonaviy dizayn</h3>
+        <p>Qoramtir fon, binafsha ranglar va moslashuvchan dizayn kompyuter hamda telefon uchun.</p>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer id="contacts">
+  <div class="container footer-inner">
+    <div>
+      <a href="#" class="logo">VIOLET<span>STORE.</span></a>
+      <p>Texnologiya va kundalik xaridlar bir joyda.</p>
+    </div>
+    <div>
+      <strong>Aloqa</strong>
+      <p>Elektron pochta: example@example.com</p>
+      <p>Telefon: +998 00 000 00 00</p>
+    </div>
+    <div>
+      <strong>Ma’lumot</strong>
+      <p>Bu o‘quv loyihasi. Haqiqiy buyurtmalar yuborilmaydi.</p>
+      <p>© <span id="year"></span> VIOLET STORE</p>
+    </div>
+  </div>
+</footer>
+
+<div class="overlay" id="cartOverlay">
+  <aside class="drawer" aria-label="Savatcha">
+    <div class="drawer-head">
+      <h2>🛒 Savatcha</h2>
+      <button class="close-btn" id="closeCart">Yopish ✕</button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-bottom">
+      <div class="total-row"><span>Jami:</span><strong id="cartTotal">0 so‘m</strong></div>
+      <button class="primary-btn" id="checkoutButton">Buyurtma berish →</button>
+    </div>
+  </aside>
+</div>
+
+<div class="modal-wrap" id="checkoutModal">
+  <div class="modal">
+    <h2>Buyurtmani rasmiylashtirish</h2>
+    <p>Ma’lumotlaringizni kiriting. Bu demo sahifada ma’lumotlar serverga yuborilmaydi.</p>
+
+    <form id="checkoutForm">
+      <div class="form-group">
+        <label for="customerName">Ism va familiya</label>
+        <input id="customerName" name="name" required minlength="2" placeholder="Ismingiz">
+      </div>
+      <div class="form-group">
+        <label for="customerPhone">Telefon raqami</label>
+        <input id="customerPhone" name="phone" type="tel" required placeholder="+998 90 123 45 67">
+      </div>
+      <div class="form-group">
+        <label for="customerAddress">Yetkazib berish manzili</label>
+        <textarea id="customerAddress" name="address" required placeholder="Shahar, ko‘cha, uy"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="deliveryMethod">Yetkazib berish usuli</label>
+        <select id="deliveryMethod" name="delivery" required>
+          <option value="Kuryer">Kuryer orqali</option>
+          <option value="Olib ketish">Do‘kondan olib ketish</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="paymentMethod">To‘lov usuli</label>
+        <select id="paymentMethod" name="payment" required>
+          <option value="Yetkazilganda">Yetkazilganda to‘lash (demo)</option>
+          <option value="Karta">Bank kartasi (demo, haqiqiy to‘lov emas)</option>
+        </select>
+      </div>
+      <div class="form-actions">
+        <button type="button" class="close-btn" id="cancelCheckout">Bekor qilish</button>
+        <button type="submit" class="primary-btn">Tasdiqlash</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+const productsData = [
+  {
+    id: 1, img: "img/Iphone 17 por max.webp", name: "iPhone 17 Pro Max", brand: "Apple",
+    category: "Elektronika", price: 18999000, oldPrice: 19999000,
+    rating: 4.9, reviews: 328, stock: 12,
+    specs: "256 GB • 6.9 dyuym • 5G", emoji: "📱", discount: 5
+  },
+  {
+    id: 2, img: "img/images.webp", name: "Samsung Galaxy S25 Ultra", brand: "Samsung",
+    category: "Elektronika", price: 15999000, oldPrice: 17499000,
+    rating: 4.8, reviews: 246, stock: 9,
+    specs: "256 GB • AMOLED • S Pen", emoji: "📱", discount: 9
+  },
+  {
+    id: 3, img: "img/MacBook.webp", name: "Apple MacBook Air 13", brand: "Apple",
+    category: "Elektronika", price: 13999000, oldPrice: 14999000,
+    rating: 4.8, reviews: 184, stock: 7,
+    specs: "13 dyuym • SSD • Apple chip", emoji: "💻", discount: 7
+  },
+  {
+    id: 4, img: "img/Asus-Rod-Strix-G16.webp", name: "ASUS ROG Strix G16", brand: "ASUS",
+    category: "Gaming", price: 21999000, oldPrice: 23999000,
+    rating: 4.9, reviews: 96, stock: 5,
+    specs: "16 dyuym • Gaming noutbuk", emoji: "💻", discount: 8
+  },
+  {
+    id: 5, img: "img/h11_600x.webp", name: "Sony WH-1000XM5", brand: "Sony",
+    category: "Aksessuarlar", price: 4299000, oldPrice: 4799000,
+    rating: 4.8, reviews: 212, stock: 14,
+    specs: "Bluetooth • ANC • Simsiz", emoji: "🎧", discount: 10
+  },
+  {
+    id: 6, img: "img/smart-chasy-apple-watch-series-10-gps-42mm-black.webp", name: "Apple Watch Series 10", brand: "Apple",
+    category: "Aksessuarlar", price: 5499000, oldPrice: 5999000,
+    rating: 4.7, reviews: 143, stock: 8,
+    specs: "GPS • Sport rejimlari", emoji: "⌚", discount: 8
+  },
+  {
+    id: 7, img: "img/PS 5 Slim.webp", name: "PlayStation 5 Slim", brand: "Sony",
+    category: "Gaming", price: 7299000, oldPrice: 7999000,
+    rating: 4.9, reviews: 301, stock: 6,
+    specs: "SSD • 4K qo‘llab-quvvatlashi", emoji: "🎮", discount: 9
+  },
+  {
+    id: 8, img: "img/Logitech-G-Pro-X-Superlight.webp", name: "Logitech G Pro X Superlight 2", brand: "Logitech",
+    category: "Gaming", price: 1899000, oldPrice: 2199000,
+    rating: 4.8, reviews: 87, stock: 11,
+    specs: "Simsiz • LIGHTSPEED", emoji: "🖱️", discount: 14
+  },
+  {
+    id: 9, img: "img/Keychron K2.webp", name: "Keychron K2", brand: "Keychron",
+    category: "Gaming", price: 1199000, oldPrice: 1399000,
+    rating: 4.7, reviews: 64, stock: 10,
+    specs: "Mexanik • Bluetooth", emoji: "⌨️", discount: 14
+  },
+  {
+    id: 12, img: "img/Xiaomi-Robot-Vacuum-S10.webp", name: "Xiaomi Robot Vacuum S10", brand: "Xiaomi",
+    category: "Uy uchun", price: 2999000, oldPrice: 3399000,
+    rating: 4.7, reviews: 105, stock: 7,
+    specs: "Aqlli navigatsiya • Ilova orqali boshqaruv", emoji: "🤖", discount: 12
+  },
+  {
+    id: 13, img: "img/Samsung-990-EVO-SSD.webp", name: "Samsung 990 EVO SSD", brand: "Samsung",
+    category: "Elektronika", price: 1199000, oldPrice: 1399000,
+    rating: 4.7, reviews: 73, stock: 13,
+    specs: "NVMe SSD • Sig‘im variantlari bor", emoji: "💾", discount: 14
+  },
+  {
+    id: 14, img: "img/portativnaya-kolonka-jbl-flip-6-portable-wireless-speaker-black.webp", name: "JBL Flip 6", brand: "JBL",
+    category: "Aksessuarlar", price: 1499000, oldPrice: 1699000,
+    rating: 4.8, reviews: 156, stock: 18,
+    specs: "Bluetooth • Portativ kolonka", emoji: "🔊", discount: 12
+  },
+  {
+    id: 15, img: "img/Canon EOS R50.webp", name: "Canon EOS R50", brand: "Canon",
+    category: "Elektronika", price: 9999000, oldPrice: 10999000,
+    rating: 4.8, reviews: 48, stock: 4,
+    specs: "Mirrorless kamera • Foto va video", emoji: "📷", discount: 9
+  },
+  {
+    id: 16, img: "img/Xbox-Wireless-Controller.webp", name: "Xbox Wireless Controller", brand: "Microsoft",
+    category: "Gaming", price: 899000, oldPrice: 999000,
+    rating: 4.7, reviews: 91, stock: 15,
+    specs: "Simsiz boshqaruv • Xbox va PC", emoji: "🎮", discount: 10
+  },
+  {
+    id: 17, img: "img/Razer BlackWidow V4.webp", name: "Razer BlackWidow V4", brand: "Razer",
+    category: "Gaming", price: 2299000, oldPrice: 2599000,
+    rating: 4.8, reviews: 58, stock: 6,
+    specs: "Mexanik klaviatura • RGB", emoji: "⌨️", discount: 12
+  },
+  {
+    id: 18, img: "img/Anker-737-Power-Bank.webp", name: "Anker 737 Power Bank", brand: "Anker",
+    category: "Aksessuarlar", price: 1299000, oldPrice: 1499000,
+    rating: 4.7, reviews: 77, stock: 10,
+    specs: "Power bank • USB-C", emoji: "🔋", discount: 13
+  },
+  {
+    id: 20, img: "img/Philips-Airfryer.webp", name: "Philips Airfryer", brand: "Philips",
+    category: "Uy uchun", price: 1899000, oldPrice: 2199000,
+    rating: 4.7, reviews: 84, stock: 8,
+    specs: "Issiq havo bilan pishirish", emoji: "🍟", discount: 14
+  }
+];
+
+const money = value =>
+  new Intl.NumberFormat("uz-UZ").format(value) + " so‘m";
+
+let activeCategory = "Barchasi";
+let favoritesOnly = false;
+let favorites = new Set();
+let cart = {};
+
+const grid = document.getElementById("productsGrid");
+const searchInput = document.getElementById("searchInput");
+const sortSelect = document.getElementById("sortSelect");
+const cartOverlay = document.getElementById("cartOverlay");
+const checkoutModal = document.getElementById("checkoutModal");
+const toast = document.getElementById("toast");
+
+function notify(message) {
+  toast.textContent = message;
+  toast.classList.add("show");
+  clearTimeout(notify.timer);
+  notify.timer = setTimeout(() => toast.classList.remove("show"), 2400);
+}
+
+function renderProducts() {
+  const query = searchInput.value.trim().toLowerCase();
+  let list = productsData.filter(product => {
+    const matchesCategory =
+      activeCategory === "Barchasi" || product.category === activeCategory;
+    const matchesQuery =
+      (product.name + " " + product.brand + " " + product.category)
+        .toLowerCase().includes(query);
+    const matchesFavorite = !favoritesOnly || favorites.has(product.id);
+
+    return matchesCategory && matchesQuery && matchesFavorite;
+  });
+
+  switch (sortSelect.value) {
+    case "cheap":
+      list.sort((a,b) => a.price - b.price);
+      break;
+    case "expensive":
+      list.sort((a,b) => b.price - a.price);
+      break;
+    case "rating":
+      list.sort((a,b) => b.rating - a.rating);
+      break;
+    case "discount":
+      list.sort((a,b) => b.discount - a.discount);
+      break;
+    default:
+      list.sort((a,b) => b.reviews - a.reviews);
+  }
+
+  if (!list.length) {
+    grid.innerHTML = '<div class="empty">😕 Mahsulot topilmadi. Boshqa so‘z bilan qidirib ko‘ring.</div>';
+    return;
+  }
+
+  grid.innerHTML = list.map((product, index) => `
+    <article class="product" style="animation-delay:${index * 60}ms; --d:-${(index % 6) * 0.6}s">
+      <div class="product-visual">
+        <img src="${encodeURI(product.img)}" alt="${product.name}" onload="this.classList.add('loaded'); this.parentNode.classList.add('ready')">
+        <span class="discount">-${product.discount}%</span>
+        <button class="favorite ${favorites.has(product.id) ? "active" : ""}"
+          data-favorite="${product.id}" aria-label="Sevimlilarga qo‘shish">
+          ${favorites.has(product.id) ? "♥" : "♡"}
+        </button>
+
+      </div>
+      <div class="product-info">
+        <div class="brand">${product.brand}</div>
+        <h3>${product.name}</h3>
+        <div class="specs">${product.specs}</div>
+        <div class="rating">★ ${product.rating} <span>(${product.reviews} ta baho)</span></div>
+        <div class="stock">● Omborda: ${product.stock} ta</div>
+        <div class="price-row">
+          <div class="price">${money(product.price)}</div>
+          <div class="old-price">${money(product.oldPrice)}</div>
+        </div>
+        <button class="add-btn" data-add="${product.id}">＋ Savatchaga qo‘shish</button>
+      </div>
+    </article>
+  `).join("");
+}
+
+function updateCounts() {
+  const quantity = Object.values(cart).reduce((sum, item) => sum + item.qty, 0);
+  document.getElementById("cartCount").textContent = quantity;
+  document.getElementById("favoriteCount").textContent = favorites.size;
+}
+
+function addToCart(id) {
+  const product = productsData.find(item => item.id === id);
+  if (!product) return;
+
+  if (cart[id]) {
+    if (cart[id].qty >= product.stock) {
+      notify("Omborda bundan ko‘p mahsulot yo‘q.");
+      return;
+    }
+    cart[id].qty++;
+  } else {
+    cart[id] = { ...product, qty: 1 };
+  }
+
+  updateCounts();
+  renderCart();
+  notify("Mahsulot savatchaga qo‘shildi ✓");
+}
+
+function changeQuantity(id, delta) {
+  if (!cart[id]) return;
+  const next = cart[id].qty + delta;
+  if (next <= 0) {
+    delete cart[id];
+  } else if (next <= cart[id].stock) {
+    cart[id].qty = next;
+  } else {
+    notify("Ombordagi mavjud miqdorga yetdingiz.");
+  }
+  updateCounts();
+  renderCart();
+}
+
+function removeFromCart(id) {
+  delete cart[id];
+  updateCounts();
+  renderCart();
+  notify("Mahsulot savatchadan olib tashlandi.");
+}
+
+function renderCart() {
+  const container = document.getElementById("cartItems");
+  const items = Object.values(cart);
+
+  if (!items.length) {
+    container.innerHTML = '<div class="empty">🛒<br><br>Savatcha hozircha bo‘sh.</div>';
+    document.getElementById("cartTotal").textContent = money(0);
+    return;
+  }
+
+  container.innerHTML = items.map(item => `
+    <div class="cart-item">
+      <div class="cart-emoji"><img src="${encodeURI(item.img)}" alt="${item.name}"></div>
+      <div>
+        <h4>${item.name}</h4>
+        <small>${money(item.price)}</small>
+        <div class="quantity">
+          <button data-minus="${item.id}" aria-label="Kamaytirish">−</button>
+          <span>${item.qty}</span>
+          <button data-plus="${item.id}" aria-label="Ko‘paytirish">＋</button>
+        </div>
+      </div>
+      <button class="remove-btn" data-remove="${item.id}">✕</button>
+    </div>
+  `).join("");
+
+  const total = items.reduce((sum,item) => sum + item.price * item.qty, 0);
+  document.getElementById("cartTotal").textContent = money(total);
+}
+
+function openCart() {
+  cartOverlay.classList.add("show");
+  renderCart();
+}
+
+function closeCart() {
+  cartOverlay.classList.remove("show");
+}
+
+document.getElementById("filters").addEventListener("click", event => {
+  const button = event.target.closest("[data-category]");
+  if (!button) return;
+
+  activeCategory = button.dataset.category;
+  favoritesOnly = false;
+
+  document.querySelectorAll(".filter-btn").forEach(item =>
+    item.classList.toggle("active", item === button)
+  );
+
+  document.getElementById("favoritesButton").style.borderColor = "";
+  renderProducts();
+});
+
+grid.addEventListener("click", event => {
+  const addButton = event.target.closest("[data-add]");
+  const favoriteButton = event.target.closest("[data-favorite]");
+
+  if (addButton) addToCart(Number(addButton.dataset.add));
+
+  if (favoriteButton) {
+    const id = Number(favoriteButton.dataset.favorite);
+    if (favorites.has(id)) {
+      favorites.delete(id);
+      notify("Sevimlilardan olib tashlandi.");
+    } else {
+      favorites.add(id);
+      notify("Sevimlilarga qo‘shildi ♥");
+    }
+    updateCounts();
+    renderProducts();
+  }
+});
+
+document.getElementById("cartItems").addEventListener("click", event => {
+  const minus = event.target.closest("[data-minus]");
+  const plus = event.target.closest("[data-plus]");
+  const remove = event.target.closest("[data-remove]");
+
+  if (minus) changeQuantity(Number(minus.dataset.minus), -1);
+  if (plus) changeQuantity(Number(plus.dataset.plus), 1);
+  if (remove) removeFromCart(Number(remove.dataset.remove));
+});
+
+searchInput.addEventListener("input", renderProducts);
+sortSelect.addEventListener("change", renderProducts);
+
+document.getElementById("favoritesButton").addEventListener("click", () => {
+  favoritesOnly = !favoritesOnly;
+  activeCategory = "Barchasi";
+
+  document.querySelectorAll(".filter-btn").forEach(button =>
+    button.classList.toggle("active", button.dataset.category === "Barchasi")
+  );
+
+  document.getElementById("favoritesButton").style.borderColor =
+    favoritesOnly ? "var(--purple)" : "";
+
+  renderProducts();
+  document.getElementById("products").scrollIntoView({ behavior: "smooth" });
+});
+
+document.getElementById("cartButton").addEventListener("click", openCart);
+document.getElementById("closeCart").addEventListener("click", closeCart);
+
+cartOverlay.addEventListener("click", event => {
+  if (event.target === cartOverlay) closeCart();
+});
+
+document.getElementById("checkoutButton").addEventListener("click", () => {
+  if (!Object.keys(cart).length) {
+    notify("Avval savatchaga mahsulot qo‘shing.");
+    return;
+  }
+
+  closeCart();
+  checkoutModal.classList.add("show");
+});
+
+document.getElementById("cancelCheckout").addEventListener("click", () => {
+  checkoutModal.classList.remove("show");
+});
+
+checkoutModal.addEventListener("click", event => {
+  if (event.target === checkoutModal) checkoutModal.classList.remove("show");
+});
+
+document.getElementById("checkoutForm").addEventListener("submit", event => {
+  event.preventDefault();
+
+  if (!Object.keys(cart).length) {
+    checkoutModal.classList.remove("show");
+    notify("Savatchangiz bo‘sh.");
+    return;
+  }
+
+  const form = new FormData(event.target);
+  const name = String(form.get("name")).trim();
+
+  if (!name) {
+    notify("Ismingizni kiriting.");
+    return;
+  }
+
+  const orderTotal = Object.values(cart)
+    .reduce((sum,item) => sum + item.price * item.qty, 0);
+
+  checkoutModal.classList.remove("show");
+  event.target.reset();
+  cart = {};
+  updateCounts();
+  renderCart();
+  renderProducts();
+
+  notify("Demo buyurtma tayyorlandi. Jami: " + money(orderTotal));
+});
+
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape") {
+    closeCart();
+    checkoutModal.classList.remove("show");
+  }
+});
+
+document.getElementById("year").textContent = new Date().getFullYear();
+
+renderProducts();
+renderCart();
+updateCounts();
+
+const preloader = document.getElementById("preloader");
+const loaderFill = document.getElementById("loaderFill");
+const startTime = Date.now();
+let progress = 0;
+const progressTimer = setInterval(() => {
+  progress = Math.min(progress + Math.random() * 18, 90);
+  loaderFill.style.width = progress + "%";
+}, 150);
+
+window.addEventListener("load", () => {
+  const wait = Math.max(0, 900 - (Date.now() - startTime));
+  setTimeout(() => {
+    clearInterval(progressTimer);
+    loaderFill.style.width = "100%";
+    setTimeout(() => {
+      preloader.classList.add("hide");
+      setTimeout(() => preloader.remove(), 600);
+    }, 250);
+  }, wait);
+});
+</script>
+</body>
+</html>
